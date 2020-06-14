@@ -9,14 +9,8 @@
     <name>Editor :: Autosave</name>
     <description>Autosave unsaved files between a predefined time interval or when focus is moved from the file.
         The module options can be changed on Tools &gt; Options &gt; Editor &gt; Autosave section.</description>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <keystore>${project.build.outputDirectory}/keystore</keystore>
-
-        <nb.release.version>RELEASE100</nb.release.version>
-    </properties>
+    <inceptionYear>2010</inceptionYear>
+    <url>https://github.com/mgraciano/netbeans-module-autosave</url>
 
     <organization>
         <name>Michel Graciano</name>
@@ -46,6 +40,14 @@
         <url>https://github.com/mgraciano/netbeans-module-autosave.git/tree/${project.scm.tag}</url>
         <tag>1.1</tag>
     </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <keystore>${project.build.outputDirectory}/keystore</keystore>
+
+        <nb.release.version>RELEASE100</nb.release.version>
+    </properties>
 
     <build>
         <plugins>
