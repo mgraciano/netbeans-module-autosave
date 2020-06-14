@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
     <action>
+        <actionName>CUSTOM-Clean and Build NBM Signed</actionName>
+        <displayName>Clean and Build NBM Signed</displayName>
+        <goals>
+            <goal>clean</goal>
+            <goal>install</goal>
+        </goals>
+        <activatedProfiles>
+            <activatedProfile>release-nbm</activatedProfile>
+        </activatedProfiles>
+    </action>
+    <action>
         <actionName>CUSTOM-Deploy at GitHub Packages</actionName>
         <displayName>Deploy at GitHub Packages</displayName>
         <goals>
@@ -8,7 +19,6 @@
         </goals>
         <properties>
             <registry>https://maven.pkg.github.com/mgraciano</registry>
-            <token>GH _TOKEN</token>
         </properties>
         <activatedProfiles>
             <activatedProfile>github</activatedProfile>
