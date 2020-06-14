@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.mgraciano.plugins</groupId>
     <artifactId>autosave</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>nbm</packaging>
 
     <name>Editor :: Autosave</name>
