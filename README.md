@@ -14,4 +14,12 @@ These configurations can be done using the IDE Options dialog at Tools > Options
 
 ![Image of Options Dialog](images/options_dialog.png)
 
+## Preparing a release
+
+```
+mvn clean
+mvn -Prelease-nbm,ossrh release:prepare
+mvn -Prelease-nbm,ossrh release:perform
+```
+
 #netbeans #autosave #plugin #module
