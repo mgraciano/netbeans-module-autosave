@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+    <action>
+        <actionName>CUSTOM-Deploy at GitHub Packages</actionName>
+        <displayName>Deploy at GitHub Packages</displayName>
+        <goals>
+            <goal>deploy</goal>
+        </goals>
+        <properties>
+            <registry>https://maven.pkg.github.com/mgraciano</registry>
+            <token>GH _TOKEN</token>
+        </properties>
+        <activatedProfiles>
+            <activatedProfile>github</activatedProfile>
+        </activatedProfiles>
+    </action>
+</actions>
