@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.mgraciano.plugins</groupId>
     <artifactId>autosave</artifactId>
-    <version>1.2</version>
+    <version>1.3-SNAPSHOT</version>
     <packaging>nbm</packaging>
 
     <name>Editor :: Autosave</name>
@@ -44,7 +44,7 @@
         <connection>scm:git:https://github.com/mgraciano/netbeans-module-autosave.git</connection>
         <developerConnection>scm:git:https://github.com/mgraciano/netbeans-module-autosave.git</developerConnection>
         <url>https://github.com/mgraciano/netbeans-module-autosave.git/tree/${project.scm.tag}</url>
-        <tag>1.2</tag>
+        <tag>1.1</tag>
     </scm>
 
     <build>
