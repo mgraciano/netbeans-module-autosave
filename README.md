@@ -7,3 +7,5 @@ The main goal of this simple plugin is to make possible to save file automatical
 These configurations can be done using the IDE Options dialog at Tools > Options:
 
 ![Image of Options Dialog](images/options_dialog.png)
+
+#netbeans #autosave
