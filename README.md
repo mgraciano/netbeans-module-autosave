@@ -6,7 +6,7 @@ The main goal of this simple plugin is to make possible to save file automatical
 
 ## Download
 
-[NetBeans 10 and superior](https://github.com/mgraciano/netbeans-module-autosave/releases/download/1.0/autosave-1.0.nbm)
+[NetBeans 10 and superior](https://github.com/mgraciano/netbeans-module-autosave/releases/latest)
 
 ## Options
 
