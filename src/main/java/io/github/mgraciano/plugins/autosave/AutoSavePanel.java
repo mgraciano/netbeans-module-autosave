@@ -33,7 +33,7 @@ import org.openide.util.NbBundle;
 final class AutoSavePanel extends javax.swing.JPanel {
 
     AutoSavePanel(final AutoSaveOptionsPanelController controller) {
-        spnModel = new SpinnerNumberModel(10, 0, 999, 1);
+        spnModel = new SpinnerNumberModel(10, 0, 9999, 1);
 
         initComponents();
     }
@@ -48,7 +48,7 @@ final class AutoSavePanel extends javax.swing.JPanel {
 
         chkUseFeature = new JCheckBox();
         chkSaveOnFocusLost = new JCheckBox();
-        spnMinutes = new JSpinner();
+        spnSeconds = new JSpinner();
         jLabel2 = new JLabel();
 
         Mnemonics.setLocalizedText(chkUseFeature, NbBundle.getMessage(AutoSavePanel.class, "AutoSavePanel.jLabel1.text")); // NOI18N
@@ -61,8 +61,8 @@ final class AutoSavePanel extends javax.swing.JPanel {
 
         Mnemonics.setLocalizedText(chkSaveOnFocusLost, NbBundle.getMessage(AutoSavePanel.class,"AutoSavePanel.chkSaveOnFocusLost.text")); // NOI18N
 
-        spnMinutes.setModel(this.spnModel);
-        spnMinutes.setToolTipText(NbBundle.getMessage(AutoSavePanel.class, "AutoSavePanel.spnMinutes.toolTipText")); // NOI18N
+        spnSeconds.setModel(this.spnModel);
+        spnSeconds.setToolTipText(NbBundle.getMessage(AutoSavePanel.class, "AutoSavePanel.spnSeconds.toolTipText")); // NOI18N
 
         Mnemonics.setLocalizedText(jLabel2, NbBundle.getMessage(AutoSavePanel.class, "AutoSavePanel.jLabel2.text")); // NOI18N
 
@@ -76,7 +76,7 @@ final class AutoSavePanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(chkUseFeature)
                         .addPreferredGap(ComponentPlacement.RELATED)
-                        .addComponent(spnMinutes, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(spnSeconds, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(ComponentPlacement.RELATED)
                         .addComponent(jLabel2)))
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -86,7 +86,7 @@ final class AutoSavePanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(Alignment.BASELINE)
                     .addComponent(chkUseFeature)
-                    .addComponent(spnMinutes, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnSeconds, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(ComponentPlacement.RELATED)
                 .addComponent(chkSaveOnFocusLost)
@@ -95,7 +95,7 @@ final class AutoSavePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void chkUseFeatureItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chkUseFeatureItemStateChanged
-        this.spnMinutes.setEnabled(this.chkUseFeature.isSelected());
+        this.spnSeconds.setEnabled(this.chkUseFeature.isSelected());
     }//GEN-LAST:event_chkUseFeatureItemStateChanged
 
     void load() {
@@ -103,7 +103,8 @@ final class AutoSavePanel extends javax.swing.JPanel {
                 AutoSaveController.KEY_ACTIVE_DEFAULT));
         chkSaveOnFocusLost.setSelected(AutoSaveController.prefs().getBoolean(AutoSaveController.KEY_SAVE_ON_FOCUS_LOST,
                 false));
-        spnModel.setValue(AutoSaveController.prefs().getInt(AutoSaveController.KEY_INTERVAL, 10));
+        spnModel.setValue(AutoSaveController.prefs().getInt(AutoSaveController.KEY_INTERVAL,
+                AutoSaveController.KEY_INTERVAL_DEFAULT));
     }
 
     void store() {
@@ -117,7 +118,7 @@ final class AutoSavePanel extends javax.swing.JPanel {
     private JCheckBox chkSaveOnFocusLost;
     private JCheckBox chkUseFeature;
     private JLabel jLabel2;
-    private JSpinner spnMinutes;
+    private JSpinner spnSeconds;
     // End of variables declaration//GEN-END:variables
    private SpinnerNumberModel spnModel;
 }

@@ -40,10 +40,12 @@ import org.openide.util.NbPreferences;
 public final class AutoSaveController {
 
     public static final String KEY_ACTIVE = "autoSaveActive";
-    public static final String KEY_INTERVAL = "autoSaveInterval";
+    public static final String KEY_INTERVAL = "autoSaveIntervalInSeconds";
+    public static final String KEY_OLD_MINUTES_INTERVAL = "autoSaveInterval";
     public static final String KEY_SAVE_ON_FOCUS_LOST = "autoSaveOnLostFocus";
 
     public static final boolean KEY_ACTIVE_DEFAULT = true;
+    public static final int KEY_INTERVAL_DEFAULT = 600;
 
     private static AutoSaveController controller;
 
@@ -82,13 +84,13 @@ public final class AutoSaveController {
     }
 
     private void startTimerSave() {
-        int delay = prefs().getInt(KEY_INTERVAL, 10);
+        int delay = prefs().getInt(KEY_INTERVAL, KEY_INTERVAL_DEFAULT);
 
         if (delay == 0 && timer != null) {
             timer.stop();
             return;
         }
-        delay = delay * 1000 * 60;
+        delay *= 1000;
 
         if (timer == null) {
             timer = new Timer(delay, event -> {
@@ -103,6 +105,7 @@ public final class AutoSaveController {
         timer.setInitialDelay(delay);
         timer.setDelay(delay);
         timer.start();
+
     }
 
     private void stopTimerSave() {
@@ -143,6 +146,12 @@ public final class AutoSaveController {
 
         @Override
         public void run() {
+            final int oldInterval = prefs().getInt(KEY_OLD_MINUTES_INTERVAL, 0);
+            if (oldInterval > 0) {
+                prefs().putInt(KEY_INTERVAL, oldInterval * 60);
+                prefs().remove(KEY_OLD_MINUTES_INTERVAL);
+            }
+
             AutoSaveController.getInstance().synchronize();
         }
 
